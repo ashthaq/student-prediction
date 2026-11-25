@@ -20,4 +20,6 @@ COPY ml/model.pkl ./ml/model.pkl
 EXPOSE 8000
 
 # step 8 start FastAPI server
-CMD ["python","-m","uvicorn","backend.main:app","--host","0.0.0.0","--port","8000"]
+# CMD ["python","-m","uvicorn","backend.main:app","--host","0.0.0.0","--port","8000"]
+
+CMD ["sh", "-c", "python -m uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
